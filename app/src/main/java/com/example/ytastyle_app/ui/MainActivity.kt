@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
-import com.example.ytastyle_app.MenuActivity
 import com.example.ytastyle_app.R
 import com.example.ytastyle_app.io.ApiService
 import com.example.ytastyle_app.io.response.LoginResponse
@@ -25,19 +25,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btnInicio = findViewById<Button>(R.id.btn_iniciar);
+        /*val btnInicio = findViewById<Button>(R.id.btn_iniciar);
         btnInicio.setOnClickListener{
             //goToMenu()
             performLogin()
+        }*/
+
+        val tvRegistrarCuenta = findViewById<TextView>(R.id.tv_crear_cuenta);
+        tvRegistrarCuenta.setOnClickListener{
+            goToRegister();
         }
     }
 
+    private fun goToRegister(){
+        val i = Intent(this,RegisterActivity::class.java);
+        startActivity(i);
+    }
 
 
     private fun goToMenu(){
-        val i = Intent(this,MenuActivity::class.java)
-        startActivity(i);
-        finish()
+        //val i = Intent(this,MenuActivity::class.java)
+        //startActivity(i);
+        //finish()
     }
 
     private fun performLogin(){
