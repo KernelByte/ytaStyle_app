@@ -1,4 +1,4 @@
-package com.example.ytastyle_app.models
+package com.example.ytastyle_app.model
 
 data class Users(
     val id_user: Int,
@@ -6,5 +6,6 @@ data class Users(
     val name_user: String,
     val email: String,
     val password_user: String,
-    val id_role_user: Int
+    val id_role_user: Int,
+    val recovery_token: Int
 )
