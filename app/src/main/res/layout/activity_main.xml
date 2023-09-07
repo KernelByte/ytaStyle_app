@@ -73,6 +73,7 @@
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
             android:text="@string/iniciar_sesion"
+            android:textSize="17sp"
             android:textColor="#FEFEFE" />
 
         <TextView
