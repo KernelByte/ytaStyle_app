@@ -68,10 +68,10 @@
         <Button
             android:id="@+id/bt_iniciar"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:background="@drawable/round_corner_buttom"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
             android:text="@string/iniciar_sesion"
             android:textColor="#FEFEFE" />
 
@@ -79,14 +79,14 @@
             android:id="@+id/tv_olvido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:text="@string/olvido"
             android:textColor="#fff" />
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="70dp"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_alignParentBottom="true"
@@ -98,6 +98,7 @@
             android:text="@string/registrate_con"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
