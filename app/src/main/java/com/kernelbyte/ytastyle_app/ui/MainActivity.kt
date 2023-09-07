@@ -1,8 +1,7 @@
 package com.kernelbyte.ytastyle_app.ui
 
-import android.content.Context
+
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Toast
@@ -10,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.kernelbyte.ytastyle_app.io.ApiService
 import com.kernelbyte.ytastyle_app.databinding.ActivityMainBinding
 import com.kernelbyte.ytastyle_app.io.response.LoginResponse
+import com.kernelbyte.ytastyle_app.util.PreferenceHelper
+import com.kernelbyte.ytastyle_app.util.PreferenceHelper.get
+import com.kernelbyte.ytastyle_app.util.PreferenceHelper.set
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,7 +20,7 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
 
     private lateinit var itemBinding: ActivityMainBinding
-    private lateinit var  userPreferences: SharedPreferences
+    //private lateinit var  useruserPreferences: ShareduserPreferences
     private var token: String? = null
 
 private val apiService : ApiService by lazy {
@@ -28,6 +30,11 @@ private val apiService : ApiService by lazy {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Verificacion de preferencias
+        val userPreferences = PreferenceHelper.defaultPrefs(this)
+        if(userPreferences["jwt",""].contains("."))
+            goToMenu()
+
         // Poner mismo color parte de arriba de la app
         val w = window
         w.setFlags(
@@ -39,7 +46,7 @@ private val apiService : ApiService by lazy {
         setContentView(itemBinding.root)
 
 
-            //token = userPreferences.getString("jwt", "")
+            //token = useruserPreferences.getString("jwt", "")
 
         itemBinding.btIniciar.setOnClickListener{
             performLogin()
@@ -49,10 +56,6 @@ private val apiService : ApiService by lazy {
             goToRegister()
         }
 
-
-        if (token?.contains(".") == true) {
-                goToMenu()
-        }
     }
 
 
@@ -95,12 +98,10 @@ private val apiService : ApiService by lazy {
 
     }
 
-    // Metodo para crear y almacenar token en preferences
+    // Metodo para crear y almacenar token en userPreferences
     private fun createSessionPreference(jwt : String){
-        userPreferences = getSharedPreferences("login", Context.MODE_PRIVATE)
-        var editor = userPreferences.edit()
-        editor.putString("jwt",jwt)
-        editor.commit()
+        val userPreferences = PreferenceHelper.defaultPrefs(this)
+        userPreferences["jwt"] = jwt
     }
 
 
