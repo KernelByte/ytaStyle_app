@@ -1,4 +1,4 @@
-package com.kernelbyte.ytastyle_app.models
+package com.kernelbyte.ytastyle_app.model
 
 data class Users(
     val idUser: Int,

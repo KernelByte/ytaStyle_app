@@ -3,7 +3,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".RegisterActivity">
+        tools:context=".ui.RegisterActivity">
 
     <LinearLayout
         android:orientation="vertical"
@@ -16,7 +16,7 @@
             android:layout_height="0dp"/>
 
         <ImageView
-            android:layout_weight="9"
+            android:layout_weight="12"
             android:src="@drawable/ic_login_register"
             android:scaleType="centerCrop"
             android:layout_width="match_parent"
@@ -42,11 +42,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="50dp"
             android:text="@string/info_register"
             android:textColor="#fff" />
 
         <EditText
+            android:id="@+id/etNombreUsuario"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_margin="20dp"
@@ -59,12 +60,13 @@
             android:textSize="17sp" />
 
         <EditText
+            android:id="@+id/etCorreoUsuario"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_margin="20dp"
             android:background="@drawable/rounded_corner"
             android:hint="@string/email_usuario"
-            android:inputType="textPassword"
+            android:inputType="textEmailAddress"
             android:paddingStart="10dp"
             android:paddingLeft="10dp"
             android:textColor="#fff"
@@ -72,6 +74,7 @@
             android:textSize="17sp" />
 
         <EditText
+            android:id="@+id/etConUsuario"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_margin="20dp"
@@ -85,6 +88,7 @@
             android:textSize="17sp" />
 
         <Button
+            android:id="@+id/btCrearCuenta"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_margin="20dp"
@@ -112,11 +116,12 @@
                 android:textColor="#fff" />
 
             <TextView
+                android:id="@+id/tvIniciarUsuario"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
 
+                android:layout_height="wrap_content"
                 android:paddingStart="10dp"
-                android:text="@string/iniciar_sesion2"
+                android:text="@string/iniciar_sesion"
                 android:textColor="#fff"
                 android:textSize="17sp"
                 android:textStyle="bold" />

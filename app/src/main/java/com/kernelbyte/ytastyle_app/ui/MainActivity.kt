@@ -1,4 +1,4 @@
-package com.kernelbyte.ytastyle_app
+package com.kernelbyte.ytastyle_app.ui
 
 import android.content.Context
 import android.content.Intent
@@ -7,8 +7,9 @@ import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.kernelbyte.ytastyle_app.io.ApiService
 import com.kernelbyte.ytastyle_app.databinding.ActivityMainBinding
-import com.kernelbyte.ytastyle_app.models.LoginResponse
+import com.kernelbyte.ytastyle_app.io.response.LoginResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -42,6 +43,10 @@ private val apiService : ApiService by lazy {
 
         itemBinding.btIniciar.setOnClickListener{
             performLogin()
+        }
+
+        itemBinding.ibCorreoLogin.setOnClickListener{
+            goToRegister()
         }
 
 
@@ -100,7 +105,13 @@ private val apiService : ApiService by lazy {
 
 
     private fun goToMenu(){
-        val i = Intent(this,MenuActivity::class.java)
+        val i = Intent(this, MenuActivity::class.java)
+        startActivity(i)
+        finish()
+    }
+
+    private fun goToRegister(){
+        val i = Intent(this, RegisterActivity::class.java)
         startActivity(i)
         finish()
     }

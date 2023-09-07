@@ -1,4 +1,4 @@
-package com.kernelbyte.ytastyle_app
+package com.kernelbyte.ytastyle_app.ui
 
 import android.os.Bundle
 import android.view.Menu
@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.kernelbyte.ytastyle_app.R
 import com.kernelbyte.ytastyle_app.databinding.ActivityMenuBinding
 
 class MenuActivity : AppCompatActivity() {
