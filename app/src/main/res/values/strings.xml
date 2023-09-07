@@ -12,7 +12,13 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="vector_background">vector fondo</string>
+    <string name="bienvenido">Bienvenido</string>
     <string name="iniciar_sesion">iniciar sesión</string>
     <string name="correo">Correo</string>
     <string name="contrasena">Contraseña</string>
+    <string name="olvido">¿Olvido su contraseña?</string>
+    <string name="registrate_con">O registrese con…</string>
+    <string name="icono_de_google">Icono de Google para registrarse</string>
+    <string name="imagen_logo_twiter">Imagen logo Twiter</string>
+    <string name="ic_correo">Correo</string>
 </resources>

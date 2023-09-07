@@ -34,47 +34,54 @@
             android:textStyle="bold"
             android:textSize="40sp"
             android:textColor="#fff"
-            android:text="@string/iniciar_sesion"
+            android:text="@string/bienvenido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <EditText
-            android:textColor="#fff"
-            android:textColorHint="#eee"
-            android:paddingStart="10dp"
-            android:paddingLeft="10dp"
-            android:hint="@string/correo"
-            android:layout_margin="20dp"
+            android:id="@+id/et_mail"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
+            android:layout_margin="20dp"
             android:background="@drawable/rounded_corner"
-            android:textSize="17sp" />
-        <EditText
-            android:textColor="#fff"
-            android:textColorHint="#eee"
+            android:hint="@string/correo"
             android:paddingStart="10dp"
             android:paddingLeft="10dp"
+            android:textColor="#fff"
+            android:textColorHint="#eee"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/et_pass"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_margin="20dp"
+            android:background="@drawable/rounded_corner"
             android:hint="@string/contrasena"
             android:inputType="textPassword"
-            android:layout_margin="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:background="@drawable/rounded_corner"
-            android:textSize="17sp" />
-        <Button
-            android:paddingRight="20dp"
-            android:paddingLeft="20dp"
-            android:background="@drawable/round_corner_buttom"
-            android:text="sign in"
-            android:textColor="#777"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp" />
-        <TextView
-            android:layout_marginTop="20dp"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
             android:textColor="#fff"
-            android:text="Forgot Password?"
+            android:textColorHint="#eee"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/bt_iniciar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="40dp"
+            android:background="@drawable/round_corner_buttom"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:text="@string/iniciar_sesion"
+            android:textColor="#FEFEFE" />
+
+        <TextView
+            android:id="@+id/tv_olvido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/olvido"
+            android:textColor="#fff" />
     </LinearLayout>
 
 
@@ -88,28 +95,39 @@
 
         <TextView
             android:layout_marginBottom="10dp"
-            android:text="Or Signup with"
+            android:text="@string/registrate_con"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <ImageButton
-                android:layout_marginRight="15dp"
+                android:layout_marginEnd="15dp"
                 android:background="@drawable/google"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
+                android:layout_height="40dp"
+                android:contentDescription="@string/icono_de_google" />
+
             <ImageButton
-                android:layout_marginRight="15dp"
+                android:layout_marginEnd="15dp"
                 android:background="@drawable/facebook_box"
                 android:layout_width="40dp"
                 android:layout_height="40dp" />
+
             <ImageButton
+                android:layout_marginEnd="15dp"
                 android:background="@drawable/twitter"
                 android:layout_width="40dp"
-                android:layout_height="40dp" />
-        </LinearLayout>
+                android:layout_height="40dp"
+                android:contentDescription="@string/imagen_logo_twiter" />
 
+            <ImageButton
+                android:background="@drawable/ic_mail"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/ic_correo" />
+        </LinearLayout>
 
     </LinearLayout>
 
