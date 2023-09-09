@@ -27,4 +27,9 @@
     <string name="email_usuario">Correo electronico</string>
     <string name="mensaje_registro">¿Tienes una cuenta ya creada?</string>
     <string name="usuario">Usuario</string>
+    <string name="articulos">ARTICULOS</string>
+    <string name="inventario">INVENTARIO</string>
+    <string name="categorias">CATEGORIAS</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -68,7 +68,9 @@ class MainActivity : AppCompatActivity() {
 
                     // Si la comunicacion es correcta
                     if (loginResponse.success){
-                        createSessionPreference(loginResponse.data.jwt)
+                        createSessionPreference("jwt", loginResponse.data.jwt)
+                        createSessionPreference("nombre", loginResponse.data.user.nameUser)
+                        createSessionPreference("correo", loginResponse.data.user.mailUser)
                         goToMenu()
                         return
                     }else{
@@ -86,9 +88,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Metodo para crear y almacenar token en userPreferences
-    private fun createSessionPreference(jwt : String){
+    private fun createSessionPreference(clave:  String, jwt : String){
         //val userPreferences = PreferenceHelper(this)
-        userPreferences.saveString("jwt",jwt)
+        userPreferences.saveString(clave, jwt)
     }
 
     private fun goToMenu(){

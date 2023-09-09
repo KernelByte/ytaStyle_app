@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
 import android.widget.ImageView
+import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -16,19 +17,21 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.kernelbyte.ytastyle_app.R
 import com.kernelbyte.ytastyle_app.databinding.ActivityMenuBinding
+import com.kernelbyte.ytastyle_app.util.PreferenceHelper
 
 class MenuActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMenuBinding
     private lateinit var dialog: BottomSheetDialog
+    private lateinit var userPreferences: PreferenceHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        userPreferences = PreferenceHelper(this)
         setSupportActionBar(binding.appBarMenu.toolbar)
 
         binding.appBarMenu.fab.setOnClickListener { view ->
@@ -42,7 +45,13 @@ class MenuActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val header = navView.getHeaderView(0)
+        var nombreView = header.findViewById<TextView>(R.id.tv_nombre_user)
+        var correoView = header.findViewById<TextView>(R.id.tv_correo_user)
         val imagenUserView = header.findViewById<ImageView>(R.id.iv_user_acount)
+
+        nombreView.text = userPreferences.getString("nombre","")
+        correoView.text = userPreferences.getString("correo","")
+
 
         imagenUserView.setOnClickListener{
             showBottomSheet()
