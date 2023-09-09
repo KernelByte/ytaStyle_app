@@ -4,13 +4,13 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_subtitle">user@correo.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_venta">Venta</string>
+    <string name="menu_producto">Productos</string>
+    <string name="menu_cliente">Clientes</string>
     <string name="vector_background">vector fondo</string>
     <string name="bienvenido">Bienvenido</string>
     <string name="iniciar_sesion">iniciar sesión</string>
@@ -26,4 +26,5 @@
     <string name="nombre_usuario">Nombre completo</string>
     <string name="email_usuario">Correo electronico</string>
     <string name="mensaje_registro">¿Tienes una cuenta ya creada?</string>
+    <string name="usuario">Usuario</string>
 </resources>

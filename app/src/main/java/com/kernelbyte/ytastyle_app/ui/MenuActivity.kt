@@ -1,7 +1,9 @@
 package com.kernelbyte.ytastyle_app.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
+import android.widget.ImageView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -11,6 +13,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.kernelbyte.ytastyle_app.R
 import com.kernelbyte.ytastyle_app.databinding.ActivityMenuBinding
 
@@ -18,6 +21,7 @@ class MenuActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMenuBinding
+    private lateinit var dialog: BottomSheetDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,11 +38,19 @@ class MenuActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_menu)
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+        val header = navView.getHeaderView(0)
+        val imagenUserView = header.findViewById<ImageView>(R.id.iv_user_acount)
+
+        imagenUserView.setOnClickListener{
+            showBottomSheet()
+        }
+
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_venta, R.id.nav_producto, R.id.nav_cliente
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -54,5 +66,13 @@ class MenuActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_menu)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    @SuppressLint("InflateParams")
+    private fun showBottomSheet(){
+        val dialogView = layoutInflater.inflate(R.layout.buttom_sheet,null)
+        dialog = BottomSheetDialog(this,R.style.BottomSheetDialogTheme)
+        dialog.setContentView(dialogView)
+        dialog.show()
     }
 }

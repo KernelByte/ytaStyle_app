@@ -10,8 +10,6 @@ import com.kernelbyte.ytastyle_app.io.ApiService
 import com.kernelbyte.ytastyle_app.databinding.ActivityMainBinding
 import com.kernelbyte.ytastyle_app.io.response.LoginResponse
 import com.kernelbyte.ytastyle_app.util.PreferenceHelper
-import com.kernelbyte.ytastyle_app.util.PreferenceHelper.get
-import com.kernelbyte.ytastyle_app.util.PreferenceHelper.set
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,19 +18,17 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
 
     private lateinit var itemBinding: ActivityMainBinding
-    //private lateinit var  useruserPreferences: ShareduserPreferences
-    private var token: String? = null
+    private lateinit var userPreferences: PreferenceHelper
 
-private val apiService : ApiService by lazy {
-    ApiService.create()
-}
-
+    private val apiService : ApiService by lazy {
+        ApiService.create()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Verificacion de preferencias
-        val userPreferences = PreferenceHelper.defaultPrefs(this)
-        if(userPreferences["jwt",""].contains("."))
+        userPreferences = PreferenceHelper(this)
+        if(userPreferences.getString("jwt","").contains("."))
             goToMenu()
 
         // Poner mismo color parte de arriba de la app
@@ -45,9 +41,6 @@ private val apiService : ApiService by lazy {
         itemBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(itemBinding.root)
 
-
-            //token = useruserPreferences.getString("jwt", "")
-
         itemBinding.btIniciar.setOnClickListener{
             performLogin()
         }
@@ -55,11 +48,7 @@ private val apiService : ApiService by lazy {
         itemBinding.ibCorreoLogin.setOnClickListener{
             goToRegister()
         }
-
     }
-
-
-
 
     // Metodo para iniciar sesion en el aplicativo
     private fun performLogin(){
@@ -79,7 +68,7 @@ private val apiService : ApiService by lazy {
 
                     // Si la comunicacion es correcta
                     if (loginResponse.success){
-                        createSessionPreference(loginResponse.jwt)
+                        createSessionPreference(loginResponse.data.jwt)
                         goToMenu()
                         return
                     }else{
@@ -93,17 +82,14 @@ private val apiService : ApiService by lazy {
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Toast.makeText(applicationContext,"Se produjo un error en el servidor",Toast.LENGTH_SHORT).show()
             }
-
         })
-
     }
 
     // Metodo para crear y almacenar token en userPreferences
     private fun createSessionPreference(jwt : String){
-        val userPreferences = PreferenceHelper.defaultPrefs(this)
-        userPreferences["jwt"] = jwt
+        //val userPreferences = PreferenceHelper(this)
+        userPreferences.saveString("jwt",jwt)
     }
-
 
     private fun goToMenu(){
         val i = Intent(this, MenuActivity::class.java)
