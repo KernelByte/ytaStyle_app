@@ -2,11 +2,13 @@ package com.kernelbyte.ytastyle_app.io
 
 import com.kernelbyte.ytastyle_app.io.response.CreateResponse
 import com.kernelbyte.ytastyle_app.io.response.LoginResponse
+import com.kernelbyte.ytastyle_app.model.Products
 import com.kernelbyte.ytastyle_app.model.UserCreate
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -21,6 +23,11 @@ interface ApiService {
     @POST("users")
     fun crate_user(@Body userModel : UserCreate):
             Call<CreateResponse>
+
+
+    //Point get all Products
+    @GET("products")
+    fun getAllProducts(): Call<List<Products>>
 
     companion object Factory{
         private const val BASE_URL = "http://192.168.18.117:5000/"
