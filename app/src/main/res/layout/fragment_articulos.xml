@@ -43,7 +43,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/rv_articulos"/>
+            android:id="@+id/rv_articulos"
+            tools:listitem="@layout/product_row"/>
     </LinearLayout>
 
 </LinearLayout>

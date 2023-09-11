@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kernelbyte.ytastyle_app.R
 import com.kernelbyte.ytastyle_app.databinding.FragmentArticulosBinding
+import com.kernelbyte.ytastyle_app.databinding.FragmentProductosBinding
 import com.kernelbyte.ytastyle_app.io.ApiService
 import com.kernelbyte.ytastyle_app.model.Products
 import com.kernelbyte.ytastyle_app.util.ProductAdapter
@@ -29,22 +31,25 @@ class ArticulosFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
-
         }
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_articulos, container, false)
+        _binding = FragmentArticulosBinding.inflate(inflater, container, false)
+        val root: View = binding.root
 
         getProducts()
+
+        return root
     }
 
     private fun getProducts(){
+
         val call = apiService.getAllProducts()
 
         call.enqueue(object : Callback<List<Products>> {
@@ -55,21 +60,20 @@ class ArticulosFragment : Fragment() {
 
             override fun onFailure(call: Call<List<Products>>, t: Throwable) {
                 //Log.d("Falla","onFailure")
-                Log.d("MainActivity","onFailure: " + t.message)
+                Log.d("ArticulosFragment","onFailure: " + t.message)
             }
         })
     }
 
     private fun showData(produts: List<Products>) {
-        val itemAdapter=ProductAdapter(produts)
+        /*val itemAdapter=ProductAdapter(produts)
         val recyclerP = binding.rvArticulos
         recyclerP.layoutManager = LinearLayoutManager(context)
-        recyclerP.adapter = itemAdapter
+        recyclerP.adapter = itemAdapter*/
 
-
-        /*binding.rvArticulos.apply {
+        binding.rvArticulos.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = ProductAdapter(produts)
-        }*/
+        }
     }
 }

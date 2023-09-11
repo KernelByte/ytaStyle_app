@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
@@ -48,7 +49,6 @@ class ProductFragment : Fragment() {
             override fun onTabReselected(tab: TabLayout.Tab?) {
 
             }
-
         })
 
         // Cuando se haga scroll cambiara de pagina en el tab
@@ -81,7 +81,6 @@ class ProductFragment : Fragment() {
             super.onDestroy()
             ViewPageProductos.unregisterOnPageChangeCallback(onPageChangeCallback)
         }
-
 
             /*val textView: TextView = binding.textGallery
             galleryViewModel.text.observe(viewLifecycleOwner) {
