@@ -1,18 +1,18 @@
 package com.kernelbyte.ytastyle_app.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kernelbyte.ytastyle_app.R
 import com.kernelbyte.ytastyle_app.databinding.FragmentArticulosBinding
-import com.kernelbyte.ytastyle_app.databinding.FragmentProductosBinding
 import com.kernelbyte.ytastyle_app.io.ApiService
 import com.kernelbyte.ytastyle_app.model.Products
+import com.kernelbyte.ytastyle_app.ui.MenuActivity
+import com.kernelbyte.ytastyle_app.ui.producto.RegisterProduct
 import com.kernelbyte.ytastyle_app.util.ProductAdapter
 import retrofit2.Call
 import retrofit2.Callback
@@ -44,6 +44,11 @@ class ArticulosFragment : Fragment() {
         val root: View = binding.root
 
         getProducts()
+
+        _binding!!.btRegistrarProduct.setOnClickListener{
+            val i = Intent(requireActivity(), RegisterProduct::class.java)
+            startActivity(i)
+        }
 
         return root
     }
