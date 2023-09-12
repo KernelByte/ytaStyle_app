@@ -22,7 +22,8 @@ import com.kernelbyte.ytastyle_app.model.Products
 
     class MyViewHolder(private val itemBinding: ProductRowBinding) : RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(products: Products) {
-            itemBinding.tvIdProduct.text = products.idProduct.toString()
+            itemBinding.tvNombreProduct.text = products.nameProduct.toString()
+            itemBinding.tvPrecioProduct.text = products.priceBuy.toString()
             itemBinding.tvQuantity.text = products.quantity.toString()
         }
     }

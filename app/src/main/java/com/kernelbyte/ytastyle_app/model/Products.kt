@@ -11,5 +11,6 @@ data class Products(
     val idCategoryProduct: Int,
     val idStatusProduct: Int,
     val color: String,
+    val productImage: String,
     val description: String
 )
