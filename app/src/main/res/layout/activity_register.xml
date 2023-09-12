@@ -43,14 +43,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
+            android:textSize="17sp"
             android:text="@string/info_register"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            android:layout_marginBottom="15dp"/>
 
         <EditText
             android:id="@+id/etNombreUsuario"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:background="@drawable/rounded_corner"
             android:hint="@string/nombre_usuario"
             android:paddingStart="10dp"
@@ -63,7 +65,7 @@
             android:id="@+id/etCorreoUsuario"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:background="@drawable/rounded_corner"
             android:hint="@string/email_usuario"
             android:inputType="textEmailAddress"
@@ -77,7 +79,7 @@
             android:id="@+id/etConUsuario"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:background="@drawable/rounded_corner"
             android:hint="@string/contrasena"
             android:inputType="textPassword"
@@ -91,39 +93,36 @@
             android:id="@+id/btCrearCuenta"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            android:layout_margin="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_margin="10dp"
             android:background="@drawable/round_corner_buttom"
             android:paddingStart="10dp"
             android:paddingLeft="10dp"
+            android:textColor="#6E6E6E"
             android:text="@string/registro"
-            android:textColor="#FEFEFE"
             android:textSize="17sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="90dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/mensaje_registro"
-                android:textColor="#fff" />
+                android:textColor="#fff"
+                android:textSize="15sp"/>
 
             <TextView
                 android:id="@+id/tvIniciarUsuario"
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
                 android:paddingStart="10dp"
-                android:text="@string/iniciar_sesion"
+                android:text="@string/inicia_sesion"
                 android:textColor="#fff"
-                android:textSize="17sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
         </LinearLayout>

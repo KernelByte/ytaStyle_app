@@ -1,6 +1,7 @@
 package com.kernelbyte.ytastyle_app.ui
 
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.WindowManager
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.kernelbyte.ytastyle_app.io.ApiService
 import com.kernelbyte.ytastyle_app.databinding.ActivityMainBinding
 import com.kernelbyte.ytastyle_app.io.response.LoginResponse
+import com.kernelbyte.ytastyle_app.model.UserLogin
 import com.kernelbyte.ytastyle_app.util.PreferenceHelper
 import retrofit2.Call
 import retrofit2.Callback
@@ -48,6 +50,10 @@ class MainActivity : AppCompatActivity() {
         itemBinding.ibCorreoLogin.setOnClickListener{
             goToRegister()
         }
+
+        itemBinding.tvOlvido.setOnClickListener {
+            goToResetPassword()
+        }
     }
 
     // Metodo para iniciar sesion en el aplicativo
@@ -55,10 +61,14 @@ class MainActivity : AppCompatActivity() {
         val et_email = itemBinding.etMail.text.toString()
         val et_pass = itemBinding.etPass.text.toString()
 
-        val call = apiService.postLogin(et_email,et_pass)
+        val user: UserLogin = UserLogin(et_email,et_pass)
+        val call = apiService.postLogin(user)
 
-        call.enqueue(object :  Callback<LoginResponse>{
-            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+        call.enqueue(object : Callback<LoginResponse>{
+            override fun onResponse(
+                call: Call<LoginResponse>,
+                response: Response<LoginResponse>
+            ) {
                 if(response.isSuccessful){
                     val loginResponse = response.body()
                     if (loginResponse == null){
@@ -82,7 +92,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Toast.makeText(applicationContext,"Se produjo un error en el servidor",Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext,"Error: Se produjo un error en el servidor",Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -101,6 +111,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun goToRegister(){
         val i = Intent(this, RegisterActivity::class.java)
+        startActivity(i)
+        finish()
+    }
+
+    private fun goToResetPassword(){
+        val i = Intent(this, ResetPassword::class.java)
         startActivity(i)
         finish()
     }
