@@ -31,7 +31,7 @@ interface ApiService {
     fun getAllProducts(): Call<List<Products>>
 
     companion object Factory{
-        private const val BASE_URL = "http://192.168.18.117:5000/"
+        private const val BASE_URL = "http://192.168.18.130:5000/"
         fun create(): ApiService {
             val retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)

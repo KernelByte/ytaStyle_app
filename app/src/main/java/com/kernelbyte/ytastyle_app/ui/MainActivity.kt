@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(applicationContext,"Usuario o contraseña invalidos",Toast.LENGTH_SHORT).show()
                     }
                 }  else{
-                    Toast.makeText(applicationContext,"Se produjo un error en el servidor",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext,"Se produjo un error en el servidor.",Toast.LENGTH_SHORT).show()
                 }
             }
 
