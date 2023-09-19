@@ -34,4 +34,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="registrar_articulo">Registrar</string>
     <string name="inicia_sesion">Inicia sesion</string>
+    <string name="olvido_su_contrase_a">Olvido su contraseña?</string>
+    <string name="mensaje_recordar">Ingrese el correo electronico asociado a su cuenta de usuario. Le enviaremos un link al correo para que pueda restablecer la contraseña.</string>
 </resources>

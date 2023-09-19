@@ -68,9 +68,10 @@ class RegisterActivity : AppCompatActivity() {
                     }
 
                     if(registerResponse.success){
+                        goToLogin()
                         Toast.makeText(applicationContext,registerResponse.message.toString(), Toast.LENGTH_SHORT).show()
                     }else{
-                        Toast.makeText(applicationContext,"Ocurrio un error al crear el usuario",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(applicationContext,registerResponse.message.toString(),Toast.LENGTH_SHORT).show()
                     }
                 }else{
                     Toast.makeText(applicationContext,"Se produjo un error en el servidor", Toast.LENGTH_SHORT).show()
